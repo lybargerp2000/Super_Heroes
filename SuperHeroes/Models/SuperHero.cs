@@ -11,6 +11,6 @@ namespace SuperHeroes.Models
         [Key]
         public int Id { get; set; }
         public string Name { get; set; }
-        public string Atibutes { get; set; }
+        public string Atributes { get; set; }
     }
 }
