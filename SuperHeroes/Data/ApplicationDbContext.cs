@@ -6,11 +6,14 @@ using Microsoft.EntityFrameworkCore;
 
 namespace SuperHeroes.Data
 {
-    public class ApplicationDbContext : IdentityDbContext
+    public class ApplicationDbContext : IdentityDbContext   
     {
+      
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
         {
+          
         }
+        public DbSet<Models.SuperHero> SuperHeroes { get; set; }
     }
 }
