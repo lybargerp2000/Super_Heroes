@@ -4,30 +4,35 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using SuperHeroes.Data;
+using SuperHeroes.Models;
 
 namespace SuperHeroes.Controllers
 {
-    public class FirstController : Controller
+    public class SuperHeroes : Controller
     {
-        // GET: First
+        public ApplicationDbContext db;
+        // GET: SuperHeroes
         public ActionResult Index()
+
         {
+
             return View();
         }
 
-        // GET: First/Details/5
+        // GET: SuperHeroes/Details/5
         public ActionResult Details(int id)
         {
             return View();
         }
 
-        // GET: First/Create
+        // GET: SuperHeroes/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: First/Create
+        // POST: SuperHeroes/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(IFormCollection collection)
@@ -44,13 +49,13 @@ namespace SuperHeroes.Controllers
             }
         }
 
-        // GET: First/Edit/5
+        // GET: SuperHeroes/Edit/5
         public ActionResult Edit(int id)
         {
             return View();
         }
 
-        // POST: First/Edit/5
+        // POST: SuperHeroes/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(int id, IFormCollection collection)
@@ -67,13 +72,13 @@ namespace SuperHeroes.Controllers
             }
         }
 
-        // GET: First/Delete/5
+        // GET: SuperHeroes/Delete/5
         public ActionResult Delete(int id)
         {
             return View();
         }
 
-        // POST: First/Delete/5
+        // POST: SuperHeroes/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Delete(int id, IFormCollection collection)
