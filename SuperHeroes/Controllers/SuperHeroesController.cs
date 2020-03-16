@@ -9,15 +9,19 @@ using SuperHeroes.Models;
 
 namespace SuperHeroes.Controllers
 {
-    public class SuperHeroes : Controller
+    public class SuperHeroesController : Controller
     {
         public ApplicationDbContext db;
+        public SuperHeroesController(ApplicationDbContext context)
+        {
+            db = context;
+        }
         // GET: SuperHeroes
         public ActionResult Index()
 
         {
-
-            return View();
+            var superheroes = db.SuperHeroes;
+            return View(superheroes);
         }
 
         // GET: SuperHeroes/Details/5
@@ -35,11 +39,12 @@ namespace SuperHeroes.Controllers
         // POST: SuperHeroes/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public ActionResult Create(SuperHero superHero)
         {
             try
             {
-                // TODO: Add insert logic here
+                db.SuperHeroes.Add(superHero);
+                db.SaveChanges();
 
                 return RedirectToAction(nameof(Index));
             }
