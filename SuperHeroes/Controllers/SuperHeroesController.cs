@@ -11,7 +11,7 @@ namespace SuperHeroes.Controllers
 {
     public class SuperHeroesController : Controller
     {
-        public ApplicationDbContext db;
+        private readonly ApplicationDbContext db;
         public SuperHeroesController(ApplicationDbContext context)
         {
             db = context;
