@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Data;
+using System.Text;
 using System.Threading.Tasks;
+using System.Linq.Expressions;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using SuperHeroes.Data;
@@ -27,7 +30,7 @@ namespace SuperHeroes.Controllers
         // GET: SuperHeroes/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            return View(id);
         }
 
         // GET: SuperHeroes/Create
@@ -90,7 +93,10 @@ namespace SuperHeroes.Controllers
         {
             try
             {
-                // TODO: Add delete logic here
+                //id =
+                //// TODO: Add delete logic here
+                //db.SuperHeroes.Remove(collection);
+                //db.SaveChanges();
 
                 return RedirectToAction(nameof(Index));
             }
