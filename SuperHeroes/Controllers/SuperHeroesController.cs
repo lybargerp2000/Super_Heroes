@@ -30,7 +30,9 @@ namespace SuperHeroes.Controllers
         // GET: SuperHeroes/Details/5
         public ActionResult Details(int id)
         {
-            return View(id);
+            var superhero = db.SuperHeroes.Where(s => s.Id == id).SingleOrDefault();
+            return View(superhero);
+
         }
 
         // GET: SuperHeroes/Create
