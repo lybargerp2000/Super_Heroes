@@ -72,7 +72,12 @@ namespace SuperHeroes.Controllers
         {
             try
             {
+                var superHero = db.SuperHeroes.Where(s => s.Id == id).SingleOrDefault();
+
+                //db.SuperHeroes.Update(superHero);
+                db.SaveChanges();
                 // TODO: Add update logic here
+
 
                 return RedirectToAction(nameof(Index));
             }
