@@ -85,6 +85,7 @@ namespace SuperHeroes.Controllers
         // GET: SuperHeroes/Delete/5
         public ActionResult Delete(int id)
         {
+
             return View();
         }
 
@@ -93,12 +94,12 @@ namespace SuperHeroes.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Delete(int id, IFormCollection collection)
         {
+            View(collection);
             try
             {
-                //id =
-                //// TODO: Add delete logic here
-                //db.SuperHeroes.Remove(collection);
-                //db.SaveChanges();
+                var superHero = db.SuperHeroes.Where(s => s.Id == id);
+                db.SuperHeroes.RemoveRange(superHero);
+                db.SaveChanges();
 
                 return RedirectToAction(nameof(Index));
             }
