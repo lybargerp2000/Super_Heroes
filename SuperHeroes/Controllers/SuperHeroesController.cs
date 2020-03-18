@@ -62,7 +62,8 @@ namespace SuperHeroes.Controllers
         // GET: SuperHeroes/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            var superHero = db.SuperHeroes.Where(s => s.Id == id).Single();
+            return View(superHero);
         }
 
         // POST: SuperHeroes/Edit/5
@@ -70,12 +71,23 @@ namespace SuperHeroes.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit(int id, IFormCollection collection)
         {
+            //View(collection);
             try
             {
+                
                 var superHero = db.SuperHeroes.Where(s => s.Id == id).SingleOrDefault();
-
-                //db.SuperHeroes.Update(superHero);
+                //db.SuperHeroes.UpdateRange(superHero);
+                //db.SaveChanges();
+                //superHero = ViewBag();
+                superHero = ViewBag();
+                db.SuperHeroes.UpdateRange(superHero);
+                //ViewBag(superHero);
+                //db.SuperHeroes.AsEnumerable(superHero);
                 db.SaveChanges();
+
+                //db.SaveChanges();
+                //db.SuperHeroes.UpdateRange(superHero);
+                //db.SaveChanges();
                 // TODO: Add update logic here
 
 
@@ -90,8 +102,8 @@ namespace SuperHeroes.Controllers
         // GET: SuperHeroes/Delete/5
         public ActionResult Delete(int id)
         {
-
-            return View();
+            var superHero = db.SuperHeroes.Where(s => s.Id == id).Single();
+            return View(superHero);
         }
 
         // POST: SuperHeroes/Delete/5
