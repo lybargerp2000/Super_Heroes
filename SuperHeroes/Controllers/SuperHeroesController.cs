@@ -69,27 +69,15 @@ namespace SuperHeroes.Controllers
         // POST: SuperHeroes/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        public ActionResult Edit(int id, SuperHero superHero)
         {
-            //View(collection);
+           
             try
             {
                 
-                var superHero = db.SuperHeroes.Where(s => s.Id == id).SingleOrDefault();
-                //db.SuperHeroes.UpdateRange(superHero);
-                //db.SaveChanges();
-                //superHero = ViewBag();
-                superHero = ViewBag();
-                db.SuperHeroes.UpdateRange(superHero);
-                //ViewBag(superHero);
-                //db.SuperHeroes.AsEnumerable(superHero);
+                db.Update(superHero);
                 db.SaveChanges();
-
-                //db.SaveChanges();
-                //db.SuperHeroes.UpdateRange(superHero);
-                //db.SaveChanges();
-                // TODO: Add update logic here
-
+               
 
                 return RedirectToAction(nameof(Index));
             }
