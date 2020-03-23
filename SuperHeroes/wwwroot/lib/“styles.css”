@@ -1,0 +1,11 @@
+p {
+    background-color: green;
+    font-family: "Comic Sans MS";
+}
+ h1 {
+    color: rgb(126, 26, 26);
+ }
+ body {
+    background-color:rgb(160, 231, 160);
+  }
+  
